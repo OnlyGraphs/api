@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package ingress_controller;
+
+service IngressController {
+    rpc updateIndex (UpdateIndexRequest) returns (UpdateIndexReply) {}
+}
+
+
+message UpdateIndexRequest {
+}
+
+message UpdateIndexReply {
+    int64 numberUrlUpdates = 1;
+}

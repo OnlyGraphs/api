@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package preprocessor;
+
+service Preprocessor{
+    rpc preprocessorRawArticle(PreprocessorRequest) returns (PreprocessorArticleResponse) {}
+    rpc preprocessorRawText(PreprocessorRequest) returns (PreprocessorTextResponse) {}
+}
+
+message PreprocessorRequest {
+    string rawText = 1;
+    ProcessingOptions processingOptions = 2;
+}
+
+message ProcessingOptions {
+    bool removeStopWords =  1;
+    bool stemming =  2;
+    bool fold_case =  3;
+    bool normalise = 4;
+    bool expand_capitals =  5;
+    int32 ngrams = 6;
+}
+
+message PreprocessorArticleResponse {
+    repeated string preprocessedText = 1;
+    repeated string textLinks = 2;
+    repeated string textCategories = 3;
+}
+
+message PreprocessorTextResponse {
+    repeated string preprocessedText = 1;
+}
