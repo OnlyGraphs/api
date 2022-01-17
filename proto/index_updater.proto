@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package index_update;
+package index_updater;
 
 service IndexUpdate{
     rpc updateArticle(IndexUpdateRequest) returns (IndexUpdateResponse) {}
