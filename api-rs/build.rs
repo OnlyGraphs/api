@@ -8,7 +8,6 @@ fn main() {
     build_protos![
         "ingress_controller",
         "preprocessor",
-        "index_updater",
-        "url_metadata",
+        "data_controller",
     ]
 }

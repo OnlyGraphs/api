@@ -11,6 +11,5 @@ macro_rules! define_proto {
 define_proto![
     "ingress_controller",
     "preprocessor",
-    "index_updater",
-    "url_metadata",
+    "data_controller",
 ];
