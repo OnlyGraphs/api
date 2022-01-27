@@ -12,14 +12,24 @@ message PreprocessorRequest {
 }
 
 message ProcessingOptions {
-    bool removeStopWords =  1;
-    bool stemming =  2;
-    bool fold_case =  3;
-    bool normalise = 4;
-    bool expand_capitals =  5;
-    int32 ngrams = 6;
+    TokenisationOptions tokenisationOptions = 1;
+    bool foldCase =  2;
+    bool removeStopWords =  3;
+    Normalisation normalisation =  4;
 }
 
+message TokenisationOptions {
+    bool removeNumbers = 1;
+    bool removeCoordinates = 2;
+    bool removeDates = 3;
+    // Remove special characters or replace with something similar
+    bool removeSpecialCharacters = 4;
+    bool removePunctuation = 5;
+}
+
+enum Normalisation {
+    Stemming = 0;
+    Lemmatisation = 1;
 }
 
 message PreprocessorTextResponse {
