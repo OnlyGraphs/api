@@ -2,9 +2,8 @@ syntax = "proto3";
 
 package preprocessor;
 
-service Preprocessor{
-    rpc preprocessorRawArticle(PreprocessorRequest) returns (PreprocessorArticleResponse) {}
-    rpc preprocessorRawText(PreprocessorRequest) returns (PreprocessorTextResponse) {}
+service Preprocessor {
+    rpc preprocessText(PreprocessorRequest) returns (PreprocessorTextResponse) {}
 }
 
 message PreprocessorRequest {
@@ -21,10 +20,6 @@ message ProcessingOptions {
     int32 ngrams = 6;
 }
 
-message PreprocessorArticleResponse {
-    repeated string preprocessedText = 1;
-    repeated string textLinks = 2;
-    repeated string textCategories = 3;
 }
 
 message PreprocessorTextResponse {
