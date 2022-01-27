@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package data_controller;
+
+service DataController {
+    rpc getLastUpdatedDateTime(ArticleRequest) returns (LastUpdatedDateResponse) {}
+    rpc createDump(CreateDumpRequest) returns (DumpId) {}
+    rpc updateDumpId(ArticleRequest) returns (UpdateDumpIdResponse) {}
+    rpc purgeThenComplete(DumpId) returns (PurgeResponse) {}
+    rpc updateArticle(IndexUpdateRequest) returns (IndexUpdateResponse) {}
+}
+
+message ArticleRequest {
+    string domain = 1;
+    string articleTitle = 2;
+}
+
+message LastUpdatedDateResponse {
+    string lastIndexedDate = 1;
+}
+
+message CreateDumpRequest {
+    string domain = 1;
+}
+
+message DumpId {
+    int64 dumpId = 1;
+}
+
+message UpdateDumpIdResponse {
+     bool success = 1;
+}
+
+message PurgeResponse {
+     bool success = 1;
+}
+
+message IndexUpdateRequest {
+    string domain = 1;
+    string title = 2;
+    string lastUpdatedDate = 3;
+    string namespace = 4;
+    int64 dumpId = 5;
+    string processedText = 6;
+    string links = 7;
+    string categories = 8;
+    string templates = 9;
+    repeated Citation citations = 10;
+}
+
+message Citation {
+    string title = 1;
+    string body = 2;
+}
+
+message IndexUpdateResponse {
+}
