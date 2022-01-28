@@ -28,8 +28,9 @@ message TokenisationOptions {
 }
 
 enum Normalisation {
-    Stemming = 0;
-    Lemmatisation = 1;
+    None = 0;
+    Stemming = 1;
+    Lemmatisation = 2;
 }
 
 message PreprocessorTextResponse {
