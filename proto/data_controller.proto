@@ -5,7 +5,7 @@ package data_controller;
 service DataController {
     rpc getLastUpdatedDateTime(ArticleRequest) returns (LastUpdatedDateResponse) {}
     rpc createDump(CreateDumpRequest) returns (DumpId) {}
-    rpc updateDumpId(ArticleRequest) returns (UpdateDumpIdResponse) {}
+    rpc updateDumpId(DumpRequest) returns (UpdateDumpIdResponse) {}
     rpc purgeThenComplete(DumpId) returns (PurgeResponse) {}
     rpc updateArticle(IndexUpdateRequest) returns (IndexUpdateResponse) {}
 }
@@ -13,6 +13,12 @@ service DataController {
 message ArticleRequest {
     string domain = 1;
     string articleTitle = 2;
+}
+
+message DumpRequest {
+    string domain = 1;
+    string articleTitle = 2;
+    int64 dumpId = 3;
 }
 
 message LastUpdatedDateResponse {
