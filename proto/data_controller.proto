@@ -45,7 +45,8 @@ message IndexUpdateRequest {
     string links = 7;
     string categories = 8;
     string templates = 9;
-    repeated string citationsBodies = 10;
+    string abstracts = 10;
+    repeated string citationsBodies = 11;
 }
 
 message IndexUpdateResponse {
