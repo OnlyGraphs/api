@@ -45,12 +45,7 @@ message IndexUpdateRequest {
     string links = 7;
     string categories = 8;
     string templates = 9;
-    repeated Citation citations = 10;
-}
-
-message Citation {
-    string title = 1;
-    string body = 2;
+    repeated string citationsBodies = 10;
 }
 
 message IndexUpdateResponse {
