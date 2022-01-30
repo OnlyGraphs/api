@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x15\x64\x61ta_controller.proto\x12\x0f\x64\x61ta_controller\"6\n\x0e\x41rticleRequest\x12\x0e\n\x06\x64omain\x18\x01 \x01(\t\x12\x14\n\x0c\x61rticleTitle\x18\x02 \x01(\t\"2\n\x17LastUpdatedDateResponse\x12\x17\n\x0flastIndexedDate\x18\x01 \x01(\t\"#\n\x11\x43reateDumpRequest\x12\x0e\n\x06\x64omain\x18\x01 \x01(\t\"\x18\n\x06\x44umpId\x12\x0e\n\x06\x64umpId\x18\x01 \x01(\x03\"\'\n\x14UpdateDumpIdResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\" \n\rPurgeResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\xea\x01\n\x12IndexUpdateRequest\x12\x0e\n\x06\x64omain\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x17\n\x0flastUpdatedDate\x18\x03 \x01(\t\x12\x11\n\tnamespace\x18\x04 \x01(\t\x12\x0e\n\x06\x64umpId\x18\x05 \x01(\x03\x12\x15\n\rprocessedText\x18\x06 \x01(\t\x12\r\n\x05links\x18\x07 \x01(\t\x12\x12\n\ncategories\x18\x08 \x01(\t\x12\x11\n\ttemplates\x18\t \x01(\t\x12,\n\tcitations\x18\n \x03(\x0b\x32\x19.data_controller.Citation\"\'\n\x08\x43itation\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0c\n\x04\x62ody\x18\x02 \x01(\t\"\x15\n\x13IndexUpdateResponse2\xcc\x03\n\x0e\x44\x61taController\x12\x65\n\x16getLastUpdatedDateTime\x12\x1f.data_controller.ArticleRequest\x1a(.data_controller.LastUpdatedDateResponse\"\x00\x12K\n\ncreateDump\x12\".data_controller.CreateDumpRequest\x1a\x17.data_controller.DumpId\"\x00\x12X\n\x0cupdateDumpId\x12\x1f.data_controller.ArticleRequest\x1a%.data_controller.UpdateDumpIdResponse\"\x00\x12N\n\x11purgeThenComplete\x12\x17.data_controller.DumpId\x1a\x1e.data_controller.PurgeResponse\"\x00\x12\\\n\rupdateArticle\x12#.data_controller.IndexUpdateRequest\x1a$.data_controller.IndexUpdateResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x15\x64\x61ta_controller.proto\x12\x0f\x64\x61ta_controller\"6\n\x0e\x41rticleRequest\x12\x0e\n\x06\x64omain\x18\x01 \x01(\t\x12\x14\n\x0c\x61rticleTitle\x18\x02 \x01(\t\"C\n\x0b\x44umpRequest\x12\x0e\n\x06\x64omain\x18\x01 \x01(\t\x12\x14\n\x0c\x61rticleTitle\x18\x02 \x01(\t\x12\x0e\n\x06\x64umpId\x18\x03 \x01(\x03\"2\n\x17LastUpdatedDateResponse\x12\x17\n\x0flastIndexedDate\x18\x01 \x01(\t\"#\n\x11\x43reateDumpRequest\x12\x0e\n\x06\x64omain\x18\x01 \x01(\t\"\x18\n\x06\x44umpId\x12\x0e\n\x06\x64umpId\x18\x01 \x01(\x03\"\'\n\x14UpdateDumpIdResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\" \n\rPurgeResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\xe8\x01\n\x12IndexUpdateRequest\x12\x0e\n\x06\x64omain\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x17\n\x0flastUpdatedDate\x18\x03 \x01(\t\x12\x11\n\tnamespace\x18\x04 \x01(\t\x12\x0e\n\x06\x64umpId\x18\x05 \x01(\x03\x12\x15\n\rprocessedText\x18\x06 \x01(\t\x12\r\n\x05links\x18\x07 \x01(\t\x12\x12\n\ncategories\x18\x08 \x01(\t\x12\x11\n\ttemplates\x18\t \x01(\t\x12\x11\n\tabstracts\x18\n \x01(\t\x12\x17\n\x0f\x63itationsBodies\x18\x0b \x03(\t\"\x15\n\x13IndexUpdateResponse2\xc9\x03\n\x0e\x44\x61taController\x12\x65\n\x16getLastUpdatedDateTime\x12\x1f.data_controller.ArticleRequest\x1a(.data_controller.LastUpdatedDateResponse\"\x00\x12K\n\ncreateDump\x12\".data_controller.CreateDumpRequest\x1a\x17.data_controller.DumpId\"\x00\x12U\n\x0cupdateDumpId\x12\x1c.data_controller.DumpRequest\x1a%.data_controller.UpdateDumpIdResponse\"\x00\x12N\n\x11purgeThenComplete\x12\x17.data_controller.DumpId\x1a\x1e.data_controller.PurgeResponse\"\x00\x12\\\n\rupdateArticle\x12#.data_controller.IndexUpdateRequest\x1a$.data_controller.IndexUpdateResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -64,6 +64,52 @@ _ARTICLEREQUEST = _descriptor.Descriptor(
 )
 
 
+_DUMPREQUEST = _descriptor.Descriptor(
+  name='DumpRequest',
+  full_name='data_controller.DumpRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='domain', full_name='data_controller.DumpRequest.domain', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='articleTitle', full_name='data_controller.DumpRequest.articleTitle', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dumpId', full_name='data_controller.DumpRequest.dumpId', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=98,
+  serialized_end=165,
+)
+
+
 _LASTUPDATEDDATERESPONSE = _descriptor.Descriptor(
   name='LastUpdatedDateResponse',
   full_name='data_controller.LastUpdatedDateResponse',
@@ -91,8 +137,8 @@ _LASTUPDATEDDATERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=98,
-  serialized_end=148,
+  serialized_start=167,
+  serialized_end=217,
 )
 
 
@@ -123,8 +169,8 @@ _CREATEDUMPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=150,
-  serialized_end=185,
+  serialized_start=219,
+  serialized_end=254,
 )
 
 
@@ -155,8 +201,8 @@ _DUMPID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=187,
-  serialized_end=211,
+  serialized_start=256,
+  serialized_end=280,
 )
 
 
@@ -187,8 +233,8 @@ _UPDATEDUMPIDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=213,
-  serialized_end=252,
+  serialized_start=282,
+  serialized_end=321,
 )
 
 
@@ -219,8 +265,8 @@ _PURGERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=254,
-  serialized_end=286,
+  serialized_start=323,
+  serialized_end=355,
 )
 
 
@@ -296,8 +342,15 @@ _INDEXUPDATEREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='citations', full_name='data_controller.IndexUpdateRequest.citations', index=9,
-      number=10, type=11, cpp_type=10, label=3,
+      name='abstracts', full_name='data_controller.IndexUpdateRequest.abstracts', index=9,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='citationsBodies', full_name='data_controller.IndexUpdateRequest.citationsBodies', index=10,
+      number=11, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -314,47 +367,8 @@ _INDEXUPDATEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=289,
-  serialized_end=523,
-)
-
-
-_CITATION = _descriptor.Descriptor(
-  name='Citation',
-  full_name='data_controller.Citation',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='title', full_name='data_controller.Citation.title', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='body', full_name='data_controller.Citation.body', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=525,
-  serialized_end=564,
+  serialized_start=358,
+  serialized_end=590,
 )
 
 
@@ -378,19 +392,18 @@ _INDEXUPDATERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=566,
-  serialized_end=587,
+  serialized_start=592,
+  serialized_end=613,
 )
 
-_INDEXUPDATEREQUEST.fields_by_name['citations'].message_type = _CITATION
 DESCRIPTOR.message_types_by_name['ArticleRequest'] = _ARTICLEREQUEST
+DESCRIPTOR.message_types_by_name['DumpRequest'] = _DUMPREQUEST
 DESCRIPTOR.message_types_by_name['LastUpdatedDateResponse'] = _LASTUPDATEDDATERESPONSE
 DESCRIPTOR.message_types_by_name['CreateDumpRequest'] = _CREATEDUMPREQUEST
 DESCRIPTOR.message_types_by_name['DumpId'] = _DUMPID
 DESCRIPTOR.message_types_by_name['UpdateDumpIdResponse'] = _UPDATEDUMPIDRESPONSE
 DESCRIPTOR.message_types_by_name['PurgeResponse'] = _PURGERESPONSE
 DESCRIPTOR.message_types_by_name['IndexUpdateRequest'] = _INDEXUPDATEREQUEST
-DESCRIPTOR.message_types_by_name['Citation'] = _CITATION
 DESCRIPTOR.message_types_by_name['IndexUpdateResponse'] = _INDEXUPDATERESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -400,6 +413,13 @@ ArticleRequest = _reflection.GeneratedProtocolMessageType('ArticleRequest', (_me
   # @@protoc_insertion_point(class_scope:data_controller.ArticleRequest)
   })
 _sym_db.RegisterMessage(ArticleRequest)
+
+DumpRequest = _reflection.GeneratedProtocolMessageType('DumpRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DUMPREQUEST,
+  '__module__' : 'data_controller_pb2'
+  # @@protoc_insertion_point(class_scope:data_controller.DumpRequest)
+  })
+_sym_db.RegisterMessage(DumpRequest)
 
 LastUpdatedDateResponse = _reflection.GeneratedProtocolMessageType('LastUpdatedDateResponse', (_message.Message,), {
   'DESCRIPTOR' : _LASTUPDATEDDATERESPONSE,
@@ -443,13 +463,6 @@ IndexUpdateRequest = _reflection.GeneratedProtocolMessageType('IndexUpdateReques
   })
 _sym_db.RegisterMessage(IndexUpdateRequest)
 
-Citation = _reflection.GeneratedProtocolMessageType('Citation', (_message.Message,), {
-  'DESCRIPTOR' : _CITATION,
-  '__module__' : 'data_controller_pb2'
-  # @@protoc_insertion_point(class_scope:data_controller.Citation)
-  })
-_sym_db.RegisterMessage(Citation)
-
 IndexUpdateResponse = _reflection.GeneratedProtocolMessageType('IndexUpdateResponse', (_message.Message,), {
   'DESCRIPTOR' : _INDEXUPDATERESPONSE,
   '__module__' : 'data_controller_pb2'
@@ -466,8 +479,8 @@ _DATACONTROLLER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=590,
-  serialized_end=1050,
+  serialized_start=616,
+  serialized_end=1073,
   methods=[
   _descriptor.MethodDescriptor(
     name='getLastUpdatedDateTime',
@@ -494,7 +507,7 @@ _DATACONTROLLER = _descriptor.ServiceDescriptor(
     full_name='data_controller.DataController.updateDumpId',
     index=2,
     containing_service=None,
-    input_type=_ARTICLEREQUEST,
+    input_type=_DUMPREQUEST,
     output_type=_UPDATEDUMPIDRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,

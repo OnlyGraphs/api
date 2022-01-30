@@ -26,7 +26,7 @@ class DataControllerStub(object):
                 )
         self.updateDumpId = channel.unary_unary(
                 '/data_controller.DataController/updateDumpId',
-                request_serializer=data__controller__pb2.ArticleRequest.SerializeToString,
+                request_serializer=data__controller__pb2.DumpRequest.SerializeToString,
                 response_deserializer=data__controller__pb2.UpdateDumpIdResponse.FromString,
                 )
         self.purgeThenComplete = channel.unary_unary(
@@ -89,7 +89,7 @@ def add_DataControllerServicer_to_server(servicer, server):
             ),
             'updateDumpId': grpc.unary_unary_rpc_method_handler(
                     servicer.updateDumpId,
-                    request_deserializer=data__controller__pb2.ArticleRequest.FromString,
+                    request_deserializer=data__controller__pb2.DumpRequest.FromString,
                     response_serializer=data__controller__pb2.UpdateDumpIdResponse.SerializeToString,
             ),
             'purgeThenComplete': grpc.unary_unary_rpc_method_handler(
@@ -158,7 +158,7 @@ class DataController(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/data_controller.DataController/updateDumpId',
-            data__controller__pb2.ArticleRequest.SerializeToString,
+            data__controller__pb2.DumpRequest.SerializeToString,
             data__controller__pb2.UpdateDumpIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
