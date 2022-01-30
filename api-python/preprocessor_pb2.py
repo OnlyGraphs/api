@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x12preprocessor.proto\x12\x0cpreprocessor\"b\n\x13PreprocessorRequest\x12\x0f\n\x07rawText\x18\x01 \x01(\t\x12:\n\x11processingOptions\x18\x02 \x01(\x0b\x32\x1f.preprocessor.ProcessingOptions\"\xb2\x01\n\x11ProcessingOptions\x12>\n\x13tokenisationOptions\x18\x01 \x01(\x0b\x32!.preprocessor.TokenisationOptions\x12\x10\n\x08\x66oldCase\x18\x02 \x01(\x08\x12\x17\n\x0fremoveStopWords\x18\x03 \x01(\x08\x12\x32\n\rnormalisation\x18\x04 \x01(\x0e\x32\x1b.preprocessor.Normalisation\"\x98\x01\n\x13TokenisationOptions\x12\x15\n\rremoveNumbers\x18\x01 \x01(\x08\x12\x19\n\x11removeCoordinates\x18\x02 \x01(\x08\x12\x13\n\x0bremoveDates\x18\x03 \x01(\x08\x12\x1f\n\x17removeSpecialCharacters\x18\x04 \x01(\x08\x12\x19\n\x11removePunctuation\x18\x05 \x01(\x08\"4\n\x18PreprocessorTextResponse\x12\x18\n\x10preprocessedText\x18\x01 \x03(\t*0\n\rNormalisation\x12\x0c\n\x08Stemming\x10\x00\x12\x11\n\rLemmatisation\x10\x01\x32m\n\x0cPreprocessor\x12]\n\x0epreprocessText\x12!.preprocessor.PreprocessorRequest\x1a&.preprocessor.PreprocessorTextResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x12preprocessor.proto\x12\x0cpreprocessor\"b\n\x13PreprocessorRequest\x12\x0f\n\x07rawText\x18\x01 \x01(\t\x12:\n\x11processingOptions\x18\x02 \x01(\x0b\x32\x1f.preprocessor.ProcessingOptions\"\xb2\x01\n\x11ProcessingOptions\x12>\n\x13tokenisationOptions\x18\x01 \x01(\x0b\x32!.preprocessor.TokenisationOptions\x12\x10\n\x08\x66oldCase\x18\x02 \x01(\x08\x12\x17\n\x0fremoveStopWords\x18\x03 \x01(\x08\x12\x32\n\rnormalisation\x18\x04 \x01(\x0e\x32\x1b.preprocessor.Normalisation\"\x98\x01\n\x13TokenisationOptions\x12\x15\n\rremoveNumbers\x18\x01 \x01(\x08\x12\x19\n\x11removeCoordinates\x18\x02 \x01(\x08\x12\x13\n\x0bremoveDates\x18\x03 \x01(\x08\x12\x1f\n\x17removeSpecialCharacters\x18\x04 \x01(\x08\x12\x19\n\x11removePunctuation\x18\x05 \x01(\x08\"4\n\x18PreprocessorTextResponse\x12\x18\n\x10preprocessedText\x18\x01 \x03(\t*:\n\rNormalisation\x12\x08\n\x04None\x10\x00\x12\x0c\n\x08Stemming\x10\x01\x12\x11\n\rLemmatisation\x10\x02\x32m\n\x0cPreprocessor\x12]\n\x0epreprocessText\x12!.preprocessor.PreprocessorRequest\x1a&.preprocessor.PreprocessorTextResponse\"\x00\x62\x06proto3'
 )
 
 _NORMALISATION = _descriptor.EnumDescriptor(
@@ -31,12 +31,17 @@ _NORMALISATION = _descriptor.EnumDescriptor(
   create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='Stemming', index=0, number=0,
+      name='None', index=0, number=0,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='Lemmatisation', index=1, number=1,
+      name='Stemming', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='Lemmatisation', index=2, number=2,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
@@ -44,13 +49,14 @@ _NORMALISATION = _descriptor.EnumDescriptor(
   containing_type=None,
   serialized_options=None,
   serialized_start=526,
-  serialized_end=574,
+  serialized_end=584,
 )
 _sym_db.RegisterEnumDescriptor(_NORMALISATION)
 
 Normalisation = enum_type_wrapper.EnumTypeWrapper(_NORMALISATION)
-Stemming = 0
-Lemmatisation = 1
+globals()['None'] = 0
+Stemming = 1
+Lemmatisation = 2
 
 
 
@@ -284,8 +290,8 @@ _PREPROCESSOR = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=576,
-  serialized_end=685,
+  serialized_start=586,
+  serialized_end=695,
   methods=[
   _descriptor.MethodDescriptor(
     name='preprocessText',
