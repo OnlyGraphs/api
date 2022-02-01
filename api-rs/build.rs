@@ -9,5 +9,6 @@ fn main() {
         "ingress_controller",
         "preprocessor",
         "data_controller",
+        "wiki_search",
     ]
 }

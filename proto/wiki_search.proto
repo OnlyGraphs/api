@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package wiki_search;
+
+service IngressController {
+    rpc updateIndex (CheckIndexRequest) returns (CheckIndexReply) {}
+}
+
+
+message CheckIndexRequest {
+}
+
+message CheckIndexReply {
+    bool success = 1;
+    string err_code = 2;
+}
