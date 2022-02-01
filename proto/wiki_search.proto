@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package wiki_search;
 
-service IngressController {
+service WikiSearch {
     rpc updateIndex (CheckIndexRequest) returns (CheckIndexReply) {}
 }
 
