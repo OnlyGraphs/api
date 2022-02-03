@@ -39,6 +39,11 @@ class DataControllerStub(object):
                 request_serializer=data__controller__pb2.IndexUpdateRequest.SerializeToString,
                 response_deserializer=data__controller__pb2.IndexUpdateResponse.FromString,
                 )
+        self.getLatestDumpDateTime = channel.unary_unary(
+                '/data_controller.DataController/getLatestDumpDateTime',
+                request_serializer=data__controller__pb2.CreateDumpRequest.SerializeToString,
+                response_deserializer=data__controller__pb2.LatestDumpDateTimeResponse.FromString,
+                )
 
 
 class DataControllerServicer(object):
@@ -74,6 +79,12 @@ class DataControllerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def getLatestDumpDateTime(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DataControllerServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -101,6 +112,11 @@ def add_DataControllerServicer_to_server(servicer, server):
                     servicer.updateArticle,
                     request_deserializer=data__controller__pb2.IndexUpdateRequest.FromString,
                     response_serializer=data__controller__pb2.IndexUpdateResponse.SerializeToString,
+            ),
+            'getLatestDumpDateTime': grpc.unary_unary_rpc_method_handler(
+                    servicer.getLatestDumpDateTime,
+                    request_deserializer=data__controller__pb2.CreateDumpRequest.FromString,
+                    response_serializer=data__controller__pb2.LatestDumpDateTimeResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -194,5 +210,22 @@ class DataController(object):
         return grpc.experimental.unary_unary(request, target, '/data_controller.DataController/updateArticle',
             data__controller__pb2.IndexUpdateRequest.SerializeToString,
             data__controller__pb2.IndexUpdateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def getLatestDumpDateTime(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/data_controller.DataController/getLatestDumpDateTime',
+            data__controller__pb2.CreateDumpRequest.SerializeToString,
+            data__controller__pb2.LatestDumpDateTimeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
