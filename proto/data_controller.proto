@@ -8,6 +8,7 @@ service DataController {
     rpc updateDumpId(DumpRequest) returns (UpdateDumpIdResponse) {}
     rpc purgeThenComplete(DumpId) returns (PurgeResponse) {}
     rpc updateArticle(IndexUpdateRequest) returns (IndexUpdateResponse) {}
+    rpc getLatestDumpDateTime(CreateDumpRequest) returns  (LatestDumpDateTimeResponse) {}
 }
 
 message ArticleRequest {
@@ -23,6 +24,10 @@ message DumpRequest {
 
 message LastUpdatedDateResponse {
     string lastIndexedDate = 1;
+}
+
+message LatestDumpDateTimeResponse {
+    string lastUpdateDate = 1;
 }
 
 message CreateDumpRequest {
@@ -50,9 +55,10 @@ message IndexUpdateRequest {
     string processedText = 6;
     string links = 7;
     string categories = 8;
-    string templates = 9;
-    string abstracts = 10;
-    repeated string citationsBodies = 11;
+    string abstracts = 9;
+    repeated string citationsBodies = 10;
+    repeated string infoboxTypes = 11;
+    repeated string infoboxBodies = 12;
 }
 
 message IndexUpdateResponse {
