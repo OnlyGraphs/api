@@ -8,6 +8,7 @@ service DataController {
     rpc updateDumpId(DumpRequest) returns (UpdateDumpIdResponse) {}
     rpc purgeThenComplete(DumpId) returns (PurgeResponse) {}
     rpc updateArticle(IndexUpdateRequest) returns (IndexUpdateResponse) {}
+    rpc getLatestDumpDateTime(CreateDumpRequest) returns (LatestDumpDateTimeResponse) {}
 }
 
 message ArticleRequest {
@@ -23,6 +24,10 @@ message DumpRequest {
 
 message LastUpdatedDateResponse {
     string lastIndexedDate = 1;
+}
+
+message LatestDumpDateTimeResponse {
+    string lastUpdateDate = 1;
 }
 
 message CreateDumpRequest {
@@ -41,6 +46,11 @@ message PurgeResponse {
      bool success = 1;
 }
 
+message Infobox {
+    string infoboxType = 1;
+    string infoboxBody = 2;
+}
+
 message IndexUpdateRequest {
     string domain = 1;
     string title = 2;
@@ -50,9 +60,9 @@ message IndexUpdateRequest {
     string processedText = 6;
     string links = 7;
     string categories = 8;
-    string templates = 9;
-    string abstracts = 10;
-    repeated string citationsBodies = 11;
+    string abstracts = 9;
+    repeated string citationsBodies = 10;
+    repeated Infobox infoboxes = 11;
 }
 
 message IndexUpdateResponse {
