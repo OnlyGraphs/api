@@ -6,8 +6,9 @@ service IngressController {
     rpc updateIndex (UpdateIndexRequest) returns (UpdateIndexReply) {}
 }
 
-
 message UpdateIndexRequest {
+    bool forceUpdate = 1;
+    string wikiDomain = 2;
 }
 
 message UpdateIndexReply {
