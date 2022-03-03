@@ -12,5 +12,4 @@ message UpdateIndexRequest {
 }
 
 message UpdateIndexReply {
-    int64 numberUrlUpdates = 1;
 }
